@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width" />
+        <title>Hello World</title>
+        link
+    </head>
+    <body>
+        <h1>Hello World</h1>
+        <ul id="screen">
+            
+        </ul>
+        <script src="jquery-3.3.1.min.js" charset="utf-8"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.js" charset="utf-8"></script>
+        <script>
+            $(function (){
+                var socket = io.connect("http://localhost:5000/");
+                socket.emit('connected','hello there');
+                socket.on('newshell',function(msg){
+                     console.log("MESSAGEM NOVA");
+                    $('#screen').append($('<li>').text(msg));
+                });
+            });
+        </script>
+    </body>
+</html>
