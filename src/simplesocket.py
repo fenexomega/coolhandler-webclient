@@ -11,9 +11,11 @@ TIMEOUT = 5
 BUFFER = 1024
 
 class simplesocket(threading.Thread):
-    def __init__(self,tcp,receive_callback,offline_callback):
+    def __init__(self,ip,port,receive_callback,offline_callback):
         super().__init__()
-        self.tcp                    = tcp
+        self.tcp = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
+        self.tcp.connect((ip,port))
+        # self.tcp                    = tcp
         self.online                 = True
         self.out_queue              = []
         self.receive_callback       = receive_callback
@@ -28,7 +30,7 @@ class simplesocket(threading.Thread):
     def notify_offline(self):
         self.offline_callback()
 
-    def sendall(message):
+    def sendall(self,message):
         self.out_queue.append(message)
 
     def run(self):

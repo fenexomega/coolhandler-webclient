@@ -4,24 +4,31 @@
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width" />
         <title>Hello World</title>
-        link
+        <link rel="stylesheet" href="style.css" type="text/css" media="all" />
+
     </head>
     <body>
+
         <h1>Hello World</h1>
         <ul id="screen">
             
         </ul>
+        <div id="clients" class="name">
+            
+        </div>
+        <div id="terminal">
+            <div id="text">
+            
+            </div>
+            <form action="" accept-charset="utf-8">
+               <input autofocus autocomplete="off" onkeydown="if (event.keyCode == 13) {  return keydown_cmd(this); }" type="text" name="cmd" id="cmd" value="" /> 
+            </form>
+
+        </div>
         <script src="jquery-3.3.1.min.js" charset="utf-8"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.js" charset="utf-8"></script>
+        <script src="code.js" charset="utf-8"></script>
         <script>
-            $(function (){
-                var socket = io.connect("http://localhost:5000/");
-                socket.emit('connected','hello there');
-                socket.on('newshell',function(msg){
-                     console.log("MESSAGEM NOVA");
-                    $('#screen').append($('<li>').text(msg));
-                });
-            });
         </script>
     </body>
 </html>

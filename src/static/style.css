@@ -1,0 +1,19 @@
+* {
+    color: white;
+    background-color: black;
+    font-size: 14px;
+    margin: 0px;
+    padding: 0px;
+}
+
+p {
+}
+
+input {
+    width: 100%;
+    border-style: none;
+    position: static;
+    bottom: 0px;
+}
+
+
